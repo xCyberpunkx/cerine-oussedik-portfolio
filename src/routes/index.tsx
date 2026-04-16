@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Mail, Github, Linkedin, Sparkles, Code2, Brain, Heart, Users, Trophy, Rocket } from "lucide-react";
+import { ArrowRight, Mail, Github, Linkedin, Sparkles, Code2, Brain, Heart, Users, Trophy, Rocket, Layout, Server, Database, Binary, Wrench } from "lucide-react";
 import { Butterflies, Butterfly, Sparkle } from "@/components/Butterflies";
 import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
@@ -29,13 +29,58 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const skills = {
-  Frontend: ["HTML", "CSS", "JavaScript"],
-  Backend: ["Node.js", "PHP"],
-  Database: ["PostgreSQL"],
-  Languages: ["Java", "C", "Assembly x86", "SDL2"],
-  Tools: ["Git", "Linux"],
-};
+const skills: {
+  category: string;
+  icon: typeof Layout;
+  blurb: string;
+  items: { name: string; level: number }[];
+}[] = [
+  {
+    category: "Frontend",
+    icon: Layout,
+    blurb: "Crafting interfaces with care.",
+    items: [
+      { name: "HTML", level: 90 },
+      { name: "CSS", level: 85 },
+      { name: "JavaScript", level: 80 },
+    ],
+  },
+  {
+    category: "Backend",
+    icon: Server,
+    blurb: "Where the real logic lives.",
+    items: [
+      { name: "Node.js", level: 75 },
+      { name: "PHP", level: 70 },
+    ],
+  },
+  {
+    category: "Database",
+    icon: Database,
+    blurb: "Structured, queried, optimized.",
+    items: [{ name: "PostgreSQL", level: 75 }],
+  },
+  {
+    category: "Languages",
+    icon: Binary,
+    blurb: "From high-level to bare metal.",
+    items: [
+      { name: "Java", level: 80 },
+      { name: "C", level: 75 },
+      { name: "Assembly x86", level: 65 },
+      { name: "SDL2", level: 70 },
+    ],
+  },
+  {
+    category: "Tools",
+    icon: Wrench,
+    blurb: "The everyday workshop.",
+    items: [
+      { name: "Git", level: 80 },
+      { name: "Linux", level: 75 },
+    ],
+  },
+];
 
 const projects = [
   { title: "Library Management System", desc: "A full-featured library system with elegant UI and robust data handling.", tech: ["JavaFX", "OOP"] },
@@ -149,24 +194,46 @@ function Index() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 text-center">Toolkit</p>
-            <h2 className="text-4xl md:text-5xl text-center mb-14">
+            <h2 className="text-4xl md:text-5xl text-center mb-4">
               Things I love to <em className="text-gradient not-italic">build with</em>
             </h2>
+            <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
+              A curated set of languages, frameworks, and tools I reach for when turning ideas into real systems.
+            </p>
           </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {Object.entries(skills).map(([cat, items], i) => (
-              <Reveal key={cat} delay={i * 100}>
-                <div className="glass rounded-3xl p-6 hover-lift h-full">
-                  <h3 className="font-serif text-xl mb-4 text-gradient">{cat}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((s) => (
-                      <span
-                        key={s}
-                        className="text-sm px-3 py-1.5 rounded-full bg-secondary/60 border border-primary/20 text-secondary-foreground hover:bg-primary/20 hover:border-primary/50 transition-colors"
-                      >
-                        {s}
-                      </span>
+            {skills.map((group, i) => (
+              <Reveal key={group.category} delay={i * 100}>
+                <div className="glass rounded-3xl p-6 hover-lift h-full group relative overflow-hidden">
+                  <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-hero opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-500" />
+
+                  <div className="flex items-center gap-3 mb-2 relative">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-glow shrink-0">
+                      <group.icon className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-xl text-gradient leading-tight">{group.category}</h3>
+                      <p className="text-xs text-muted-foreground italic">{group.blurb}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 space-y-3">
+                    {group.items.map((s) => (
+                      <div key={s.name}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-sm font-medium text-foreground/90">{s.name}</span>
+                          <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                            {s.level >= 80 ? "Confident" : s.level >= 70 ? "Comfortable" : "Exploring"}
+                          </span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-secondary/50 overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-hero rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${s.level}%` }}
+                          />
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
