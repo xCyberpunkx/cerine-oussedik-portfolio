@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, Download, MapPin, FileText } from "lucide-react";
 import { Butterfly, Sparkle } from "@/components/Butterflies";
 import { Reveal } from "@/components/Reveal";
@@ -43,19 +44,19 @@ export const Hero = () => {
 
         <Reveal delay={600}>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#projects"
+            <Link
+              to="/projects"
               className="group inline-flex items-center gap-2 bg-gradient-hero text-primary-foreground rounded-full px-7 py-3.5 font-medium shadow-glow hover:scale-105 transition-transform"
             >
               View Projects
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="/contact"
               className="glass rounded-full px-7 py-3.5 font-medium hover:text-primary hover-lift transition-colors"
             >
               Contact Me
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setCvOpen(true)}
