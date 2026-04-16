@@ -8,12 +8,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {
-    ssr: false,
     server: {
-      prerender: {
-        routes: ['/'],
-        crawlLinks: true
-      }
+      preset: process.env.VERCEL ? 'vercel' : process.env.NETLIFY ? 'netlify' : 'static',
     }
   },
   cloudflare: false,
