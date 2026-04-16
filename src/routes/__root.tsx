@@ -1,4 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Butterflies } from "@/components/Butterflies";
+import { Nav } from "@/components/Nav";
 
 import appCss from "../styles.css?url";
 
@@ -67,5 +69,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  return (
+    <div id="top" className="relative min-h-screen">
+      <Butterflies />
+      <Nav />
+      <Outlet />
+      <footer className="px-6 py-10 text-center text-sm text-muted-foreground">
+        <p>© {new Date().getFullYear()} Cerine Oussedik · Crafted with 💜, butterflies & late-night curiosity</p>
+      </footer>
+    </div>
+  );
 }

@@ -1,19 +1,20 @@
+import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "./ThemeToggle";
 import profileImg from "@/assets/cerine-profile.jpg";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#community", label: "Community" },
-  { href: "#contact", label: "Contact" },
-];
+  { to: "/about", label: "About" },
+  { to: "/skills", label: "Skills" },
+  { to: "/experience", label: "Experience" },
+  { to: "/projects", label: "Projects" },
+  { to: "/community", label: "Community" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export const Nav = () => (
   <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(95%,900px)]">
     <nav className="glass rounded-full px-3 py-2 flex items-center justify-between shadow-soft">
-      <a href="#top" className="flex items-center gap-2 group">
+      <Link to="/" className="flex items-center gap-2 group">
         <span className="relative shrink-0">
           <span className="absolute inset-0 rounded-full bg-gradient-hero opacity-70 blur-md group-hover:opacity-100 transition-opacity" />
           <img
@@ -23,13 +24,17 @@ export const Nav = () => (
           />
         </span>
         <span className="font-serif text-lg text-gradient font-semibold pr-2">Cerine ✦</span>
-      </a>
+      </Link>
       <ul className="hidden md:flex items-center gap-6 text-sm">
         {links.map((l) => (
-          <li key={l.href}>
-            <a href={l.href} className="text-muted-foreground hover:text-primary transition-colors">
+          <li key={l.to}>
+            <Link
+              to={l.to}
+              className="text-muted-foreground hover:text-primary transition-colors"
+              activeProps={{ className: "text-primary font-medium" }}
+            >
               {l.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
