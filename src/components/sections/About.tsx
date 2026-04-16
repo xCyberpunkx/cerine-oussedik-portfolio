@@ -1,10 +1,33 @@
 import { Brain, Code2, Heart, GraduationCap, Globe, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { Butterfly, Sparkle } from "@/components/Butterflies";
+import profileImg from "@/assets/cerine-profile.jpg";
 
 export const About = () => (
   <section id="about" className="px-6 py-28">
-    <div className="max-w-5xl mx-auto grid md:grid-cols-5 gap-10 items-center">
-      <Reveal className="md:col-span-3">
+    <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
+      {/* Profile photo */}
+      <Reveal className="lg:col-span-4">
+        <div className="relative mx-auto max-w-sm">
+          <div className="absolute -inset-4 bg-gradient-hero opacity-30 blur-3xl rounded-[2rem]" />
+          <div className="relative glass rounded-[2rem] p-2 shadow-glow hover-lift">
+            <img
+              src={profileImg}
+              alt="Cerine Oussedik portrait"
+              loading="lazy"
+              className="w-full h-auto rounded-[1.6rem] object-cover aspect-[4/5]"
+            />
+          </div>
+          <Butterfly className="absolute -top-6 -right-6 w-14 h-14 animate-flutter opacity-90" />
+          <Sparkle className="absolute -bottom-3 -left-3 w-5 h-5 text-accent animate-glow-pulse" />
+          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 glass rounded-full px-4 py-1.5 text-[11px] uppercase tracking-[0.2em] text-primary whitespace-nowrap">
+            Cerine ✦ Algiers
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Text */}
+      <Reveal delay={150} className="lg:col-span-5">
         <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4">About me</p>
         <h2 className="text-4xl md:text-5xl mb-6">
           A quiet kind of <em className="text-gradient not-italic">ambitious</em>.
@@ -34,7 +57,8 @@ export const About = () => (
         </div>
       </Reveal>
 
-      <Reveal delay={200} className="md:col-span-2 grid gap-4">
+      {/* Trait cards */}
+      <Reveal delay={300} className="lg:col-span-3 grid gap-4">
         {[
           { icon: Brain, title: "Problem solver", desc: "Curious by default, methodical by choice." },
           { icon: Code2, title: "Builder mindset", desc: "Ship real things. Learn out loud." },
