@@ -194,24 +194,46 @@ function Index() {
         <div className="max-w-5xl mx-auto">
           <Reveal>
             <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 text-center">Toolkit</p>
-            <h2 className="text-4xl md:text-5xl text-center mb-14">
+            <h2 className="text-4xl md:text-5xl text-center mb-4">
               Things I love to <em className="text-gradient not-italic">build with</em>
             </h2>
+            <p className="text-center text-muted-foreground mb-14 max-w-xl mx-auto">
+              A curated set of languages, frameworks, and tools I reach for when turning ideas into real systems.
+            </p>
           </Reveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {Object.entries(skills).map(([cat, items], i) => (
-              <Reveal key={cat} delay={i * 100}>
-                <div className="glass rounded-3xl p-6 hover-lift h-full">
-                  <h3 className="font-serif text-xl mb-4 text-gradient">{cat}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {items.map((s) => (
-                      <span
-                        key={s}
-                        className="text-sm px-3 py-1.5 rounded-full bg-secondary/60 border border-primary/20 text-secondary-foreground hover:bg-primary/20 hover:border-primary/50 transition-colors"
-                      >
-                        {s}
-                      </span>
+            {skills.map((group, i) => (
+              <Reveal key={group.category} delay={i * 100}>
+                <div className="glass rounded-3xl p-6 hover-lift h-full group relative overflow-hidden">
+                  <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-gradient-hero opacity-0 group-hover:opacity-20 blur-3xl transition-opacity duration-500" />
+
+                  <div className="flex items-center gap-3 mb-2 relative">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-hero flex items-center justify-center shadow-glow shrink-0">
+                      <group.icon className="w-5 h-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-serif text-xl text-gradient leading-tight">{group.category}</h3>
+                      <p className="text-xs text-muted-foreground italic">{group.blurb}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 space-y-3">
+                    {group.items.map((s) => (
+                      <div key={s.name}>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-sm font-medium text-foreground/90">{s.name}</span>
+                          <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                            {s.level >= 80 ? "Confident" : s.level >= 70 ? "Comfortable" : "Exploring"}
+                          </span>
+                        </div>
+                        <div className="h-1.5 rounded-full bg-secondary/50 overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-hero rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${s.level}%` }}
+                          />
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
