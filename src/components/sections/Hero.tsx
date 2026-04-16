@@ -53,10 +53,11 @@ export const Hero = () => (
             Contact Me
           </a>
           <a
-            href="mailto:cerineoussedik01@gmail.com?subject=Resume%20Request"
+            href="/cerine-oussedik-resume.pdf"
+            download="Cerine-Oussedik-Resume.pdf"
             className="glass rounded-full px-7 py-3.5 font-medium hover:text-primary hover-lift transition-colors inline-flex items-center gap-2"
           >
-            <Download className="w-4 h-4" /> Resume
+            <Download className="w-4 h-4" /> Download CV
           </a>
         </div>
       </Reveal>
