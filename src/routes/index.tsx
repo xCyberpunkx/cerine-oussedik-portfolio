@@ -29,13 +29,58 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const skills = {
-  Frontend: ["HTML", "CSS", "JavaScript"],
-  Backend: ["Node.js", "PHP"],
-  Database: ["PostgreSQL"],
-  Languages: ["Java", "C", "Assembly x86", "SDL2"],
-  Tools: ["Git", "Linux"],
-};
+const skills: {
+  category: string;
+  icon: typeof Layout;
+  blurb: string;
+  items: { name: string; level: number }[];
+}[] = [
+  {
+    category: "Frontend",
+    icon: Layout,
+    blurb: "Crafting interfaces with care.",
+    items: [
+      { name: "HTML", level: 90 },
+      { name: "CSS", level: 85 },
+      { name: "JavaScript", level: 80 },
+    ],
+  },
+  {
+    category: "Backend",
+    icon: Server,
+    blurb: "Where the real logic lives.",
+    items: [
+      { name: "Node.js", level: 75 },
+      { name: "PHP", level: 70 },
+    ],
+  },
+  {
+    category: "Database",
+    icon: Database,
+    blurb: "Structured, queried, optimized.",
+    items: [{ name: "PostgreSQL", level: 75 }],
+  },
+  {
+    category: "Languages",
+    icon: Binary,
+    blurb: "From high-level to bare metal.",
+    items: [
+      { name: "Java", level: 80 },
+      { name: "C", level: 75 },
+      { name: "Assembly x86", level: 65 },
+      { name: "SDL2", level: 70 },
+    ],
+  },
+  {
+    category: "Tools",
+    icon: Wrench,
+    blurb: "The everyday workshop.",
+    items: [
+      { name: "Git", level: 80 },
+      { name: "Linux", level: 75 },
+    ],
+  },
+];
 
 const projects = [
   { title: "Library Management System", desc: "A full-featured library system with elegant UI and robust data handling.", tech: ["JavaFX", "OOP"] },
