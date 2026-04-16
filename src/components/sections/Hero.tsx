@@ -15,7 +15,7 @@ export const Hero = () => {
 
         <Reveal>
           <span className="inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-primary mb-8">
-            <Sparkles className="w-3 h-3" /> Full Stack Developer · CS Student · Builder
+            <Sparkles className="w-3 h-3" /> Software engineer . Full Stack Developer
           </span>
         </Reveal>
 
