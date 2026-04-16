@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Mail, Github, Linkedin, Sparkles, Code2, Brain, Heart, Users, Trophy, Rocket } from "lucide-react";
+import { ArrowRight, Mail, Github, Linkedin, Sparkles, Code2, Brain, Heart, Users, Trophy, Rocket, Layout, Server, Database, Binary, Wrench } from "lucide-react";
 import { Butterflies, Butterfly, Sparkle } from "@/components/Butterflies";
 import { Nav } from "@/components/Nav";
 import { Reveal } from "@/components/Reveal";
