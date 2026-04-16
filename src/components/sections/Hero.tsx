@@ -77,7 +77,7 @@ export const Hero = () => {
         <Reveal delay={800}>
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl mx-auto">
             {[
-              { v: "3+", l: "Years coding" },
+              { v: "2+", l: "Years coding" },
               { v: "15+", l: "Projects built" },
               { v: "5", l: "Communities" },
               { v: "3", l: "Languages spoken" },
