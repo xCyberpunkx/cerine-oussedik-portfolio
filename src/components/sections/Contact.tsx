@@ -58,7 +58,7 @@ export const Contact = () => (
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/Cerine-IT"
             target="_blank"
             rel="noreferrer"
             className="glass rounded-full p-3.5 hover:text-primary hover-lift"
