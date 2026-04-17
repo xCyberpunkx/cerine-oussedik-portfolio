@@ -23,13 +23,15 @@ export const Contact = () => (
               cerineoussedik01@gmail.com
             </a>
           </div>
+          {/*
           <div className="glass rounded-2xl p-5 hover-lift">
             <Phone className="w-5 h-5 text-primary mb-2" />
             <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Phone</div>
-            <a href="tel:+213540452337" className="text-sm hover:text-primary">
-              +213 05 40 45 23 37
+            <a href="tel:+2130000000000" className="text-sm hover:text-primary">
+              +213 XX XX XX XX XX
             </a>
           </div>
+          */}
           <div className="glass rounded-2xl p-5 hover-lift">
             <MapPin className="w-5 h-5 text-primary mb-2" />
             <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Location</div>
