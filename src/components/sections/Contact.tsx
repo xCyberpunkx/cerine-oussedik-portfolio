@@ -15,7 +15,7 @@ export const Contact = () => (
       </Reveal>
 
       <Reveal delay={150}>
-        <div className="grid sm:grid-cols-3 gap-4 mb-10 text-left">
+        <div className="grid sm:grid-cols-2 gap-4 mb-10 text-left">
           <div className="glass rounded-2xl p-5 hover-lift">
             <Mail className="w-5 h-5 text-primary mb-2" />
             <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Email</div>
